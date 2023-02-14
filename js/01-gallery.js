@@ -32,6 +32,11 @@ function clickImage(e) {
   if (!e.target.classList.contains("gallery__image")) {
     return;
   }
+  const onCloseImg = (event) => {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  };
   const instance = basicLightbox.create(
     ` <img src=${e.target.dataset.source}>`,
     {
@@ -45,8 +50,3 @@ function clickImage(e) {
   );
   instance.show();
 }
-const onCloseImg = (event) => {
-  if (event.code === "Escape") {
-    instance.close();
-  }
-};
